@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- React (Development) -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+
+    <!-- ReactDOM (Development) -->
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <!-- Babel (for JSX support in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector(".js-container");
+      const root = ReactDOM.createRoot(container);
+
+      // Component
+
+      function LoginForm() {
+        return (
+          <>
+            <div>
+              <input placeholder="Email" />
+            </div>
+            <div>
+              <input placeholder="Password" type="password" />
+            </div>
+            <button>Login</button>
+            <button>Sign up</button>
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <p>Hello, welcome to my website</p>
+            <LoginForm />
+          </>
+        );
+      }
+
+
+
+  // Challenge Exercise
+  
+      root.render(<App />);
+    </script>
+  </body>
+</html>
