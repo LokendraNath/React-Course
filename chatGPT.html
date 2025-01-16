@@ -11,7 +11,8 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function ChatInput() {  //this is component
+      function ChatInput() {
+        //this is component
         return (
           <>
             <input placeholder="Send a message to Chatbot" size="30" />
@@ -20,22 +21,7 @@
         );
       }
 
-      function ChatMessage({ message, sender }) { // {} this is props
-        // const message = props.message;
-        // const sender = props.sender;
-        // const { message, sender } = props;
-
-        /*
-        if (sender === 'robot') {
-          return (
-            <div>
-              <img src="robot.png" width="50" />
-              {message}
-            </div>
-          );
-        }
-        */
-
+      function ChatMessage({ message, sender }) {
         return (
           <div>
             {sender === "robot" && <img src="../img/robot.png" width="50" />}
@@ -46,13 +32,51 @@
       }
 
       function App() {
+        const chatMessages = [
+          {
+            message: "hello chatbot",
+            sender: "user",
+            id: "id1",
+          },
+          {
+            message: "Hello! How can I help you?",
+            sender: "robot",
+            id: "id2",
+          },
+          {
+            message: "apke gf ka name batao",
+            sender: "user",
+            id: "id3",
+          },
+          {
+            message: "Mere paas koi girlfriend nahi hai kyunki mai ek AI hoon!",
+            sender: "robot",
+            id: "id4",
+          },
+          {
+            message: "mere pass bhi nhi hai moye moye",
+            sender: "user",
+            id: "id5",
+          },
+          {
+            message: "😂 Hota hai bhai, moye moye!",
+            sender: "robot",
+            id: "id6",
+          },
+        ];
+
         return (
           <>
             <ChatInput />
-            <ChatMessage message="hello chatbot" sender="user" />
-            <ChatMessage message="Hello! How can I help you?" sender="robot" />
-            <ChatMessage message="can you get me todays date?" sender="user" />
-            <ChatMessage message="Today is September 27" sender="robot" />
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  message={chatMessage.message}
+                  sender={chatMessage.sender}
+                  key={chatMessage.id}
+                />
+              );
+            })}
           </>
         );
       }
